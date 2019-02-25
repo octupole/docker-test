@@ -59,14 +59,13 @@ void TrjRead::Input(){
 			cout << filein1 << " " << filein2 <<endl;
 		}
 		if(!inmap["-solute"].empty()) {
-		  cout << inmap["-solute"].size() <<endl;
-			if(inmap["-solute"].size() != 2) throw string(" Reference residue for Micelle centering needed " + inmap["-solute"][0] + " option ");
-			string Ref=inmap["-solute"][1];
-			stringstream iss(Ref);
+			if(inmap["-solute"].size() == 1) throw string(" Reference residue for Micelle centering needed " + inmap["-solute"][0] + " option ");
+			stringstream iss=gList(inmap["-solute"]);
 			std::copy(istream_iterator<string>(iss),
 					istream_iterator<string>(),
 					back_inserter<vector<string> >(Reference));
 		}
+
 		if(!inmap["-o"].empty()) {
 			if(inmap["-o"].size() < 2) throw string("\n filename expected for " + inmap["-o"][0] + " option \n");
 			if(inmap["-o"].size() > 2) throw string("\n More than one entry for " + inmap["-o"][0] + " option \n");
