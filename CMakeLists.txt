@@ -37,5 +37,5 @@ endif()
 
 PROJECT(test-input)
 
-add_executable(test.x test-input.cpp trjinput.cpp TrjRead.cpp)
+add_executable(test.x test-input.cpp trjInput.cpp TrjRead.cpp)
 
