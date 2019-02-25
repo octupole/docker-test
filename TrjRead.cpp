@@ -59,6 +59,7 @@ void TrjRead::Input(){
 			cout << filein1 << " " << filein2 <<endl;
 		}
 		if(!inmap["-solute"].empty()) {
+		  cout << inmap["-solute"].size() <<endl;
 			if(inmap["-solute"].size() != 2) throw string(" Reference residue for Micelle centering needed " + inmap["-solute"][0] + " option ");
 			string Ref=inmap["-solute"][1];
 			stringstream iss(Ref);
