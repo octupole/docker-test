@@ -34,8 +34,12 @@ elseif ("${CMAKE_CXX_COMPILER_ID}" STREQUAL "GNU")
     endif()
    set(CMAKE_CXX_FLAGS "-std=c++11 -O3 -ffast-math -fno-math-errno ${OpenMP_CXX_FLAGS}")  
 endif()
+if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
+    set (CMAKE_INSTALL_PREFIX "$ENV{HOME}" CACHE PATH "default install path" FORCE )
+endif()
 
 PROJECT(test-input)
 
 add_executable(test.x test-input.cpp trjInput.cpp TrjRead.cpp)
 
+install(TARGETS test.x RUNTIME DESTINATION "${CMAKE_INSTALL_PREFIX}/bin" COMPONENT executable)
