@@ -27,8 +27,9 @@ trjInput::trjInput(int ntot,char ** v) {
 
 	vector<string> vv0;
 	string vv;
-	for(auto o=1;o<ntot;o++) vv0.push_back(v[o]);
-
+	for(auto o=1;o<ntot;o++) {
+		vv0.push_back(v[o]);
+	}
 	string key;
 	for(auto tmp0: vv0){
 		if(tmp0[0] =='-'){
