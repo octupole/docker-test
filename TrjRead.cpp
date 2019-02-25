@@ -42,6 +42,14 @@ TrjRead::TrjRead(int nv,char ** v): trjInput::trjInput(nv,v) {
 }
 void TrjRead::Input(){
 	vector<string> Reference;
+	auto gList=[](vector<string> x){
+		stringstream iss;
+		auto nsolute=x.size();
+		for(size_t o{1};o<nsolute;o++){
+			iss << x[o] <<endl;
+		}
+		return iss;
+	};
 	try{
 		if(!inmap["-in"].empty()) {
 			if(inmap["-in"].size() < 3) throw string("\n two filenames expected for " + inmap["-in"][0] + " option\n ");
